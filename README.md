@@ -12,10 +12,18 @@ En el centro está `fact_games`, la tabla de hechos: una fila por juego, con sus
 
 Como un juego puede tener varios géneros a la vez, o estar disponible en varias plataformas, hicieron falta tres tablas puente (`game_genre`, `game_developer`, `game_platform`) para resolver esas relaciones de muchos a muchos. `fact_games` se conecta directamente, por FK simple, solo con `dim_calendar` y `dim_publisher` — cada juego tiene una única fecha de lanzamiento, y se decidió simplificar a un único publisher principal por juego (más abajo se explica por qué).
 
+## Antes de empezar: descarga el dataset
+
+El CSV original pesa más de 400 MB, así que no está incluido en este repositorio (supera el límite de GitHub). Descárgalo desde Kaggle:
+
+🔗 [kaggle.com/datasets/artermiloff/steam-games-dataset](https://www.kaggle.com/datasets/artermiloff/steam-games-dataset)
+
+Descarga el archivo **`games_march2025_full.csv`** (la versión sin tratar) y colócalo en `data/games_march2025_full.csv`, respetando la estructura de carpetas de abajo.
+
 ## Cómo está organizado el repositorio
 
 ```
-steam_games/
+proyecto_sql/
 │
 ├── data/
 │   └── games_march2025_full.csv      # El CSV original, tal cual viene de Kaggle
