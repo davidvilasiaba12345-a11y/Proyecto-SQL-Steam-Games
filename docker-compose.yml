@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  steam_db:
+    image: postgres:16
+    container_name: steam_games_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: steam_games
+    ports:
+      - "5434:5432"
+    volumes:
+      - steam_games_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: steam_games_pgadmin
+    restart: always
+    depends_on:
+      - steam_db
+    ports:
+      - "8081:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+volumes:
+  steam_games_data:
