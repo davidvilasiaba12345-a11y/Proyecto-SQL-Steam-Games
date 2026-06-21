@@ -23,7 +23,7 @@ Descarga el archivo **`games_march2025_full.csv`** (la versión sin tratar) y co
 ## Cómo está organizado el repositorio
 
 ```
-proyecto_sql/
+steam_games/
 │
 ├── data/
 │   └── games_march2025_full.csv      # El CSV original, tal cual viene de Kaggle
